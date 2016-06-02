@@ -1,0 +1,1 @@
+# A bookstore ecommerce website written in django.
