@@ -124,5 +124,21 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # Registration
-ACCOUNT_ACTIVATION_DAYS = 7         # how long accounts last
-REGISTRATION_AUTO_LOGIN = True      # auto login on registration
+ACCOUNT_ACTIVATION_DAYS = 7             # how long accounts last
+REGISTRATION_AUTO_LOGIN = True          # auto login on registration
+LOGIN_REDIRECT_URL = '/store/'
+
+# Email Settings
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = "lukesbargainbooks@gmail.com"
+EMAIL_HOST_PASSWORD = "bargainbooks"    #shh
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = "books@lukesbargainbooks.com"
+
+
+
+
+
+
