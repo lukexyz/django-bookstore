@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'store',
     'registration',
+    'social.apps.django_app.default',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -66,12 +67,19 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social.apps.django_app.context_processors.backends',
+                'social.apps.django_app.context_processors.login_redirect',
             ],
         },
     },
 ]
 
 WSGI_APPLICATION = 'bookstore.wsgi.application'
+
+AUTHENTICATION_BACKENDS = (
+    'social.backends.facebook.FacebookOAuth2',
+    'django.contrib.auth.backends.ModelBackend'  # default backup
+)
 
 
 # Database
@@ -132,10 +140,14 @@ LOGIN_REDIRECT_URL = '/store/'
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_HOST_USER = "lukesbargainbooks@gmail.com"
-EMAIL_HOST_PASSWORD = "bargainbooks"    #shh
+EMAIL_HOST_PASSWORD = "bargainbooks"    # shh
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = "books@lukesbargainbooks.com"
+
+# Social Auth - Facebook
+SOCIAL_AUTH_FACEBOOK_KEY = '483283595201644'
+SOCIAL_AUTH_FACEBOOK_SECRET = '707adb31d5ca8b8ffe6e6f6921883601'
 
 
 
